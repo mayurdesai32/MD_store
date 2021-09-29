@@ -20,11 +20,17 @@ const productSchema = new Schema({
       url: { type: String, required: [true, ' enter image url'] },
     },
   ],
-  review: [
+  avgratings: { type: Number, default: 0.0 },
+  numofreviews: { type: Number, default: 0 },
+  reviews: [
     {
+      user: {
+        type: Schema.ObjectId,
+        ref: 'User',
+        required: true,
+      },
       name: { type: String, required: [true, 'enter userId'] },
       rating: { type: Number, required: [true, 'enter userId'] },
-
       comment: {
         type: String,
         required: [true, ' enter image url'],

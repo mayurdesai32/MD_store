@@ -62,3 +62,41 @@ exports.deleteSingleProduct = wrapAsync(async (req, res) => {
 
   res.status(200).json({ message: 'Product Deleted', success: true });
 });
+
+// for creating review
+exports.createReview = wrapAsync(async (req, res) => {
+  const { rating, productId, comment } = req.body;
+  const review = {
+    user: req.user.id,
+    name: req.user.name,
+    rating: Number(rating),
+    comment,
+  };
+  const Product = await product.findOne({ _id: productId });
+
+  const isReviews = Product.reviews.find(
+    (ele) => ele.user.toString() === req.user.id.toString()
+  );
+  console.log(isReviews);
+  if (isReviews) {
+    Product.reviews.forEach((ele) => {
+      if (ele.user.toString() === req.user.id.toString()) {
+        (ele.rating = rating), (ele.comment = comment);
+      }
+    });
+  } else {
+    Product.reviews.push(review);
+    console.log('hello');
+    Product.numofreviews = Product.reviews.length;
+  }
+
+  let avg = 0;
+  Product.reviews.forEach((ele) => (avg += ele.rating));
+
+  Product.avgratings = avg / Product.reviews.length;
+  await Product.save({ validateBeforeSave: false });
+  res.status(200).json({
+    success: true,
+    message: 'product review updated',
+  });
+});
