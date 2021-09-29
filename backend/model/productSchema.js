@@ -34,7 +34,11 @@ const productSchema = new Schema({
   ],
 
   seller: { type: String, required: [true, 'enter sellerName'] },
-  createdBy: { type: String, required: [true, 'enter createrID '] },
+  createdBy: {
+    type: Schema.ObjectId,
+    ref: 'User',
+    required: true,
+  },
   createAt: { type: Date, default: Date.now },
 });
 const product = new mongoose.model('PRODUCT', productSchema);

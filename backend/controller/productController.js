@@ -3,6 +3,7 @@ const AppError = require('../utils/AppError');
 const wrapAsync = require('../middleware/asyncError');
 const Apifeatures = require('../utils/apiFeature');
 exports.createProduct = wrapAsync(async (req, res) => {
+  req.body.createdBy = req.user.id;
   const Product = new product(req.body);
 
   const createProduct = await Product.save();

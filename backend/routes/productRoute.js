@@ -8,7 +8,9 @@ const {
   deleteSingleProduct,
 } = require('../controller/productController');
 
-router.post('/create', createProduct);
+const { isAuthenticate, authorizeRole } = require('../middleware/authenticate');
+
+router.post('/create', isAuthenticate, authorizeRole('admin'), createProduct);
 router.get('/all', getAllProducts);
 router.get('/single/:id', getSingleProduct);
 router.put('/update/:id', updateSingleProduct);

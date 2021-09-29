@@ -15,13 +15,24 @@ const ExpressError = (err, req, res, next) => {
       message = `Duplicate ${Object.keys(err.keyValue)} entered`;
       status = 400;
     }
+
+    // worng JWT error
+    if (err.name === 'JsonWebTokenError') {
+      message = 'Json web Token is invalid ,try again';
+      status = 400;
+    }
+    // JWT EXPIRE error
+    if (err.name === 'TokenExpiredError') {
+      message = 'Json web Token is invalid ,try again';
+      status = 400;
+    }
     // Wrong Mongoose Object ID Error
     if (err.name === 'CastError') {
       message = `Resource not found. Invalid: ${err.value}`;
       status = 400;
     }
     // Handling Mongoose Validation Error
-    else if (err.name === 'ValidationError') {
+    if (err.name === 'ValidationError') {
       message = Object.values(err.errors).map((value) => value.message);
       status = 400;
     }
