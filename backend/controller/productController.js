@@ -8,7 +8,9 @@ exports.createProduct = wrapAsync(async (req, res) => {
 
   const createProduct = await Product.save();
 
-  res.status(200).json({ message: createProduct, success: true });
+  res
+    .status(201)
+    .json({ message: 'product created', createProduct, success: true });
 });
 
 exports.getAllProducts = wrapAsync(async (req, res) => {
@@ -33,11 +35,9 @@ exports.getSingleProduct = wrapAsync(async (req, res) => {
 
 exports.updateSingleProduct = wrapAsync(async (req, res, next) => {
   const productId = req.params.id;
-  let Product = await product.find({ _id: productId });
+  let Product = await product.findOne({ _id: productId });
   if (!Product) {
-    // res.status(500).json({ message: 'product not working', success: false });
-    next(new AppError('hello', 503));
-    console.log('hello');
+    next(new AppError(`Cannot  find order with ${productId}`, 404));
   }
   Product = await product.findByIdAndUpdate({ _id: productId }, req.body, {
     new: true,
@@ -56,7 +56,7 @@ exports.deleteSingleProduct = wrapAsync(async (req, res) => {
   const productId = req.params.id;
   let Product = await product.find({ _id: productId });
   if (!Product) {
-    res.status(500).json({ message: 'product not working', success: false });
+    next(new AppError(`Cannot  find order with ${productId}`, 404));
   }
   Product = await product.findByIdAndDelete({ _id: productId });
 

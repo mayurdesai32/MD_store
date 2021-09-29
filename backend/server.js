@@ -3,6 +3,7 @@ require('dotenv').config({ path: './config/config.env' });
 const database = require('./db/db');
 const product = require('./routes/productRoute');
 const user = require('./routes/userRoute');
+const order = require('./routes/orderRoutes');
 const ExpressError = require('./middleware/ExpressError');
 const cookieParser = require('cookie-parser');
 const app = express();
@@ -15,7 +16,7 @@ app.use(cookieParser());
 // all routes
 app.use('/product', product);
 app.use('/user', user);
-
+app.use('/order', order);
 const port = process.env.PORT;
 
 // handling error
