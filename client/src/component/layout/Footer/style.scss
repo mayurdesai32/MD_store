@@ -1,0 +1,48 @@
+.footer {
+  background-color: rgb(0, 0, 0);
+  padding: 80px 20px;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  color: white;
+
+  .footer_left {
+    width: 25vw;
+    .left_title {
+      font-size: small;
+      font-weight: 700;
+    }
+    .left_item {
+      font-size: 16px;
+      padding: 10px 0;
+    }
+  }
+  .footer_middle {
+    width: 50vw;
+    text-align: center;
+    .main_title {
+      font-size: 50px;
+      font-weight: 700;
+      color: red;
+    }
+    .sub_title {
+      font-size: 16px;
+      padding-top: 10px;
+    }
+    .copyright {
+      font-size: 16px;
+      padding-top: 10px;
+    }
+  }
+
+  .footer_right {
+    width: 25vw;
+    .title {
+      font-size: 20px;
+      font-weight: 600;
+    }
+    .item {
+      font-size: 16px;
+    }
+  }
+}

@@ -1,0 +1,36 @@
+.productCard {
+  width: 230px;
+  height: 360px;
+  // box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  .product_img {
+    object-position: center;
+    object-fit: fill;
+    width: 230px;
+    height: 240px;
+  }
+
+  .product_content {
+    padding: 0 15px;
+
+    .product_title {
+      font-size: 18px;
+      color: black;
+      // text-align: center;
+      font-weight: 400;
+    }
+    .product_Feedback {
+      display: flex;
+      color: gold;
+      font-size: 15px;
+      padding-top: 5px;
+      justify-content: space-between;
+      // .product_review{}
+      //   .product_rating {  }
+    }
+    .product_price {
+      color: red;
+      font-size: 18px;
+      padding-top: 10px;
+    }
+  }
+}
