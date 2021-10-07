@@ -19,5 +19,10 @@
   .nav_link {
     margin: 0 10px;
     cursor: pointer;
+    text-decoration: none;
+    color: white;
+    .fas {
+      font-size: 25px;
+    }
   }
 }

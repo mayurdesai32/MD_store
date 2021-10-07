@@ -1,0 +1,22 @@
+.error {
+  width: 100vw;
+  height: 312px;
+  display: flex;
+  flex-direction: column;
+  // justify-content: space-evenly;
+  align-items: center;
+
+  .error_title {
+    text-align: center;
+    padding: 50px;
+    text-transform: uppercase;
+  }
+  .button {
+    // margin-left: 50vw;
+    // align-items: center;
+    width: 200px;
+    text-transform: uppercase;
+    height: 40px;
+    cursor: pointer;
+  }
+}

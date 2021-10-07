@@ -1,0 +1,25 @@
+.container {
+  margin: 8vh 0;
+}
+
+.Search {
+  width: 100%;
+  // height: 200px;
+  display: flex;
+  // flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  .Search_btn {
+    height: 50px;
+    padding: 2px 5px;
+    background-color: red;
+    font-size: 18px;
+  }
+  .Search_input {
+    width: 70vw;
+    height: 50px;
+    font-size: 18px;
+    text-align: center;
+  }
+}

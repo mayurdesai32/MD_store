@@ -1,22 +1,24 @@
 import React from 'react';
 import './style.scss';
 import image1 from '../../image/image1.jpeg';
-// import { BsStarFill } from 'react-icons/all';
-const Product = () => {
+
+import { Link } from 'react-router-dom';
+const Product = ({ item }) => {
+  console.log(item);
   return (
-    <div className='productCard'>
+    <Link to={`/singleproduct/${item._id}`} className='productCard'>
       {/* <div className='product_image'> */}
       <img className='product_img' src={image1} alt='image1' />
       {/* </div> */}
       <div className='product_content'>
-        <div className='product_title'>Lorem ipsum dolor gdg sit amet.</div>
+        <div className='product_title'>{item.name}</div>
         <div className='product_Feedback'>
-          <div className='product_rating'>222</div>
-          <div className='product_review'>(1 reviews)</div>
+          <div className='product_rating'>222{item.avgratings} </div>
+          <div className='product_review'>({item.numofreviews} reviews)</div>
         </div>
-        <div className='product_price'>Rs 400</div>
+        <div className='product_price'>{item.price}</div>
       </div>
-    </div>
+    </Link>
   );
 };
 

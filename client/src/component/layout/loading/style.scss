@@ -1,0 +1,15 @@
+.loading {
+  width: 100vw;
+  height: 312px;
+  display: flex;
+  flex-direction: column;
+  // justify-content: space-evenly;
+  align-items: center;
+
+  .loading_image {
+    width: 312px;
+    height: 312px;
+    object-position: center;
+    object-fit: contain;
+  }
+}

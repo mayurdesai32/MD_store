@@ -21,16 +21,14 @@ exports.getAllProducts = wrapAsync(async (req, res) => {
     .filter()
     .pagination(resultPerPage);
   const Product = await apifeatures.query;
-  res
-    .status(200)
-    .json({ Total: productCount, message: Product, success: true });
+  res.status(200).json({ Total: productCount, Product, success: true });
 });
 
 exports.getSingleProduct = wrapAsync(async (req, res) => {
   const productId = req.params.id;
   const Product = await product.find({ _id: productId });
 
-  res.status(200).json({ message: Product, success: true });
+  res.status(200).json({ Product, success: true });
 });
 
 exports.updateSingleProduct = wrapAsync(async (req, res, next) => {

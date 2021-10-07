@@ -1,11 +1,28 @@
 .review_card {
   padding: 18px;
   margin: 20px;
-  height: 200px;
+  height: 300px;
   width: 400px;
   border: 1px solid red;
   .reviewer_pic {
+    // margin: 14px 0;
     height: 69px;
     width: 69px;
+  }
+  .reviewer_name {
+    margin: 14px 0;
+    font-size: 20px;
+    font-weight: 500;
+  }
+  .reviewer_comment {
+    margin: 14px 0;
+    text-align: start;
+    .comment {
+      font-size: 17px;
+      font-weight: 500;
+    }
+  }
+  .reviewer_rating {
+    margin: 14px 0;
   }
 }
